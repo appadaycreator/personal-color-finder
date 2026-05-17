@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パーソナルカラー診断【無料】イエベ・ブルべ・骨格タイプを10問で判定</title>
+    <meta name="description" content="パーソナルカラー診断（無料）。肌・髪・瞳の特徴から「イエベ春・イエベ秋・ブルべ夏・ブルべ冬」の4タイプを判定。似合う色・コスメ・洋服を提案。10問・3分・登録不要。">
+    <meta name="keywords" content="パーソナルカラー,診断,無料,イエベ,ブルべ,骨格,似合う色,コスメ,ファッション,春夏秋冬">
+    <link rel="canonical" href="https://appadaycreator.github.io/personal-color-finder/">
+    <meta property="og:title" content="パーソナルカラー診断【無料】イエベ・ブルべを10問で判定">
+    <meta property="og:description" content="肌・髪・瞳の特徴からパーソナルカラー4タイプを診断。似合う色・コスメ・ファッションを提案。無料・登録不要・3分。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://appadaycreator.github.io/personal-color-finder/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"パーソナルカラー診断","url":"https://appadaycreator.github.io/personal-color-finder/","description":"肌・髪・瞳の特徴からパーソナルカラーとタイプを診断する無料ツール。","applicationCategory":"LifestyleApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"1","bestRating":"5","worstRating":"1"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://appadaycreator.github.io/"},{"@type":"ListItem","position":2,"name":"パーソナルカラー診断【無料】","item":"https://appadaycreator.github.io/personal-color-finder/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"パーソナルカラーとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"生まれ持った肌・髪・瞳の色調に基づき、最も似合う色のグループのこと。イエローベース（春・秋）とブルーベース（夏・冬）の4タイプに分類されます。パーソナルカラーに合った色を身につけると、肌がきれいに見えたり顔色が明るくなる効果があります。"}},{"@type":"Question","name":"イエベ・ブルべとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"イエベ（イエローベース）は黄みがかった肌色の人が多く、温かみのある色が似合います。ブルべ（ブルーベース）は青みがかった肌色の人が多く、クールな色が似合います。この診断で自分がどちらかを確認できます。"}},{"@type":"Question","name":"パーソナルカラー診断の精度はどのくらいですか？","acceptedAnswer":{"@type":"Answer","text":"肌・髪・瞳・血管の色などを組み合わせて判定するため、セルフ診断としては高い精度を誇ります。ただし、照明や個人差があるため、より正確な診断にはプロのカラーアナリストへの相談もおすすめです。"}}]}</script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TXQGZRF9');</script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body{font-family:'Hiragino Sans','Yu Gothic',sans-serif;background:linear-gradient(135deg,#fdf2f8 0%,#fef3c7 100%);min-height:100vh;}
+        .hero-bg{background:linear-gradient(135deg,#db2777 0%,#9333ea 50%,#f59e0b 100%);}
+        .question-card{background:white;border-radius:20px;padding:28px;box-shadow:0 4px 20px rgba(0,0,0,0.08);}
+        .option-btn{width:100%;text-align:left;padding:14px 18px;border-radius:14px;border:2px solid #e5e7eb;background:white;cursor:pointer;font-size:0.95rem;transition:all .2s;min-height:52px;display:flex;align-items:center;gap:10px;}
+        .option-btn:hover,.option-btn.selected{border-color:#db2777;background:#fdf2f8;color:#be185d;font-weight:bold;}
+        .option-btn.selected{box-shadow:0 0 0 3px rgba(219,39,119,0.2);}
+        .progress-bar{height:8px;border-radius:4px;background:#e5e7eb;}
+        .progress-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#db2777,#f59e0b);transition:width .4s;}
+        .color-swatch{width:32px;height:32px;border-radius:8px;flex-shrink:0;border:2px solid rgba(0,0,0,0.1);}
+        .type-card{border-radius:20px;padding:24px;margin-bottom:16px;}
+        .spring{background:linear-gradient(135deg,#fff7ed,#fef3c7);border:2px solid #f59e0b;}
+        .summer{background:linear-gradient(135deg,#f0f9ff,#ede9fe);border:2px solid #8b5cf6;}
+        .autumn{background:linear-gradient(135deg,#fef3c7,#fee2e2);border:2px solid #dc2626;}
+        .winter{background:linear-gradient(135deg,#eff6ff,#f0fdf4);border:2px solid #1e40af;}
+        .hidden{display:none;}
+        @media(max-width:768px){h1{font-size:clamp(1.5rem,5vw,2.2rem)!important;}.question-card{padding:18px;}.option-btn{font-size:0.88rem;padding:12px 14px;}input,select{font-size:16px!important;}}
+    </style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXQGZRF9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="hero-bg text-white py-10 px-4 text-center">
+    <div class="inline-flex items-center gap-2 bg-white bg-opacity-20 px-4 py-2 rounded-full mb-4 text-sm font-bold">
+        <span class="h-2 w-2 bg-yellow-300 rounded-full animate-pulse"></span>
+        パーソナルカラー・骨格タイプ診断
+    </div>
+    <h1 class="text-3xl font-extrabold mb-3 leading-tight">あなたは<span style="color:#fde68a">イエベ？ブルべ？</span><br>似合う色を今すぐ診断</h1>
+    <p class="text-sm opacity-85 mb-4">肌・髪・瞳の色の特徴から<strong>パーソナルカラー4タイプ</strong>を判定。<br>似合うコスメ・洋服の色が分かります。</p>
+    <div class="flex justify-center gap-5 text-sm opacity-80">
+        <span>✅ 完全無料</span><span>✅ 登録不要</span><span>✅ 3分で診断</span>
+    </div>
+</div>
+
+<div class="max-w-xl mx-auto px-4 py-8" id="app">
+    <div id="quiz-screen">
+        <div class="mb-6">
+            <div class="flex justify-between text-sm text-gray-500 mb-2">
+                <span id="progress-label">質問 1/10</span><span id="progress-pct">10%</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
+        </div>
+        <div class="question-card">
+            <div class="text-2xl mb-3" id="q-emoji">🎨</div>
+            <h2 class="text-lg font-bold text-gray-800 mb-5" id="q-text">...</h2>
+            <div id="options-container" class="space-y-3"></div>
+        </div>
+        <div class="flex gap-3 mt-5">
+            <button id="prev-btn" class="flex-1 py-3 rounded-xl border-2 border-gray-200 text-gray-600 font-bold bg-white hidden" onclick="prev()">← 前へ</button>
+            <button id="next-btn" class="flex-1 py-3 rounded-xl text-white font-bold opacity-50 cursor-not-allowed" style="background:linear-gradient(135deg,#db2777,#9333ea);" disabled onclick="next()">次へ →</button>
+        </div>
+    </div>
+    <div id="loading-screen" class="hidden text-center py-16">
+        <div class="text-5xl mb-4 animate-spin">🌸</div>
+        <p class="text-lg font-bold text-gray-700">あなたのパーソナルカラーを分析中...</p>
+    </div>
+    <div id="result-screen" class="hidden">
+        <div class="text-center mb-6">
+            <div class="text-5xl mb-3" id="result-emoji">🎨</div>
+            <h2 class="text-2xl font-extrabold text-gray-800 mb-1" id="result-title">診断結果</h2>
+            <div class="inline-block px-4 py-1 rounded-full text-white text-sm font-bold mt-2" id="result-badge" style="background:#db2777;"></div>
+        </div>
+        <div id="result-main" class="type-card mb-6">
+            <h3 class="text-lg font-bold mb-2" id="result-headline"></h3>
+            <p class="text-gray-700 leading-relaxed mb-4" id="result-desc"></p>
+            <div class="mb-4">
+                <p class="font-bold text-sm text-gray-700 mb-2">🎨 似合う色</p>
+                <div id="color-swatches" class="flex gap-2 flex-wrap"></div>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-4">
+                <p class="font-bold text-sm text-gray-700 mb-2">💄 おすすめコスメの色</p>
+                <p id="cosmetics-tip" class="text-sm text-gray-600"></p>
+            </div>
+        </div>
+
+        <!-- Amazon affiliate（コスメ・洋服） -->
+        <div class="bg-pink-50 border border-pink-100 rounded-2xl p-5 mb-6">
+            <p class="text-sm font-bold text-pink-700 mb-3">🛍️ あなたに似合うアイテムをAmazonで探す</p>
+            <div id="amazon-links" class="space-y-2"></div>
+        </div>
+
+        <!-- アクションプラン -->
+        <div class="bg-purple-50 border border-purple-100 rounded-2xl p-5 mb-6">
+            <h3 class="font-bold text-gray-800 mb-3">✨ 明日から試せること</h3>
+            <div id="action-list" class="space-y-2 text-sm text-gray-700"></div>
+        </div>
+
+        <button onclick="shareResult()" class="w-full mb-3 py-3 rounded-xl border-2 border-gray-200 text-gray-700 font-bold bg-white hover:border-pink-400 transition">📤 診断結果をXでシェアする</button>
+        <button onclick="restart()" class="w-full py-2 text-gray-400 text-sm underline bg-transparent">もう一度診断する</button>
+
+        <div class="mt-8 bg-gray-50 border border-gray-200 rounded-2xl p-4 text-center">
+            <p class="text-xs font-bold text-gray-600 mb-2">💄 あわせて使いたいツール</p>
+            <div class="flex gap-2 flex-wrap justify-center">
+                <a href="https://appadaycreator.github.io/skincare-tracker/" class="bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs font-bold text-gray-700 no-underline">💆 スキンケア管理</a>
+                <a href="https://appadaycreator.github.io/cosmetic-finder/" class="bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs font-bold text-gray-700 no-underline">💄 化粧品診断</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="max-w-xl mx-auto px-4 pb-12">
+    <div class="bg-white rounded-2xl p-5 shadow-sm">
+        <h2 class="font-bold text-gray-800 mb-4">❓ よくある質問</h2>
+        <div class="space-y-4 text-sm">
+            <div><strong class="text-gray-700">Q. イエベ・ブルべとは？</strong><p class="text-gray-500 mt-1">イエベ（黄みよりの肌）は温かみのある色が似合い、ブルべ（青みよりの肌）はクールな色が似合います。</p></div>
+            <div><strong class="text-gray-700">Q. 診断は無料ですか？</strong><p class="text-gray-500 mt-1">完全無料・登録不要です。</p></div>
+        </div>
+    </div>
+    <div class="text-center mt-4 text-xs text-gray-400">
+        <a href="https://appadaycreator.github.io/" class="hover:underline">AppADayCreator</a> |
+        <a href="privacy.html" class="hover:underline ml-2">プライバシーポリシー</a>
+    </div>
+</div>
+
+<script>
+const Q=[
+    {emoji:'💧',text:'手首の内側の血管の色は？',opts:[{text:'緑っぽい・黄緑色',s:{yb:3}},{text:'青・青紫っぽい',s:{bb:3}},{text:'どちらとも言えない',s:{yb:1,bb:1}}]},
+    {emoji:'🌞',text:'日光に当たるとどうなりますか？',opts:[{text:'すぐ黒く日焼けする',s:{autumn:2,spring:1}},{text:'赤くなってから焼ける',s:{summer:2,winter:1}},{text:'あまり焼けない',s:{winter:2,summer:1}}]},
+    {emoji:'👗',text:'白い服を着ると顔色が明るく見えますか？',opts:[{text:'はい、白は似合う',s:{bb:2}},{text:'少しくすんで見える',s:{yb:2}},{text:'クリーム色・オフホワイトの方が似合う',s:{spring:2,autumn:1}}]},
+    {emoji:'💇',text:'髪の色（地毛）は？',opts:[{text:'黒に近い（ブルーブラック）',s:{winter:2,summer:1}},{text:'やや明るいブラウン・オークル',s:{autumn:2}},{text:'柔らかいブラウン・赤みがかっている',s:{spring:2}},{text:'やや灰色がかったブラウン',s:{summer:2}}]},
+    {emoji:'🌸',text:'肌の感じは？',opts:[{text:'黄みがあり健康的',s:{yb:3,spring:1,autumn:1}},{text:'ピンクや赤みがある',s:{bb:2,summer:2}},{text:'青白い・透明感がある',s:{winter:2,summer:1}},{text:'オークル系・やや暗め',s:{autumn:2}}]},
+    {emoji:'💎',text:'金と銀のアクセサリー、どちらが似合う？',opts:[{text:'断然ゴールド',s:{yb:3,spring:1,autumn:2}},{text:'断然シルバー',s:{bb:3,winter:2,summer:2}},{text:'どちらも似合う',s:{yb:1,bb:1}}]},
+    {emoji:'🌈',text:'鮮やかなビビッドカラーを着ると？',opts:[{text:'顔色が明るく映える',s:{spring:2,winter:2}},{text:'少し浮く・派手すぎる',s:{summer:2,autumn:2}},{text:'TPOによる',s:{spring:1,winter:1}}]},
+    {emoji:'🍂',text:'テラコッタ・からし色など秋色を着ると？',opts:[{text:'肌なじみが良くおしゃれに見える',s:{autumn:3}},{text:'顔色が悪く見える',s:{summer:2,winter:1}},{text:'普通',s:{spring:1}}]},
+    {emoji:'🫧',text:'目の色（白目と黒目のコントラスト）は？',opts:[{text:'コントラストが強い（白目が白くはっきり）',s:{winter:2}},{text:'やや柔らかいコントラスト',s:{spring:2,summer:1}},{text:'濁りがある・くすんだ感じ',s:{autumn:2}}]},
+    {emoji:'✨',text:'なりたい印象・目指すスタイルは？',opts:[{text:'きれいめ・洗練された都会的',s:{winter:2,summer:1}},{text:'かわいい・フレッシュ・明るい',s:{spring:3}},{text:'ナチュラル・温かみ・こなれ感',s:{autumn:3}},{text:'上品・エレガント・ソフト',s:{summer:3}}]},
+];
+
+const TYPES={
+    spring:{label:'イエベ春（スプリング）',emoji:'🌸',cls:'spring',badge:'#f59e0b',
+        desc:'明るく鮮やかな暖色系が得意。肌は明るいオークルで透明感があります。コーラル・ゴールド・明るいグリーンなど、パステルでも鮮やかな色がよく似合います。',
+        colors:['#fbbf24','#fb923c','#34d399','#f9a8d4','#fde68a'],
+        colorNames:['ゴールドイエロー','コーラルオレンジ','ライトグリーン','ライトピンク','クリームイエロー'],
+        cosmeticsTip:'チークはサーモンピンクやコーラル系。リップはコーラルレッド・ピーチピンク。アイシャドウはブラウン系・オレンジ系。',
+        actions:['① コーラル系・ゴールド系のリップを試してみる','② 白い服はオフホワイト・アイボリーに変えてみる','③ ゴールドのアクセサリーで肌の輝きを引き出す'],
+        amazon:['コーラル リップ コスメ おすすめ','オフホワイト ニット レディース','ゴールド ネックレス レディース']
+    },
+    summer:{label:'ブルべ夏（サマー）',emoji:'🌺',cls:'summer',badge:'#8b5cf6',
+        desc:'柔らかく上品なクールカラーが得意。ラベンダー・スモーキーピンク・アッシュグレーなどのミュートカラーが似合います。エレガントで洗練された印象を与えます。',
+        colors:['#c4b5fd','#f9a8d4','#93c5fd','#d1d5db','#a7f3d0'],
+        colorNames:['ラベンダー','スモーキーピンク','ベビーブルー','アッシュグレー','ミントグリーン'],
+        cosmeticsTip:'チークはローズ・モーブ系。リップはローズ・プラム・モーブ。アイシャドウはグレー・ラベンダー・ブルー系。',
+        actions:['① ローズ系・モーブ系のリップを試す','② くすみ感のある色（アッシュ・スモーキー系）を取り入れる','③ シルバーアクセサリーで肌の透明感を演出する'],
+        amazon:['モーブ リップ コスメ おすすめ','ラベンダー ワンピース レディース','シルバー ネックレス レディース']
+    },
+    autumn:{label:'イエベ秋（オータム）',emoji:'🍂',cls:'autumn',badge:'#dc2626',
+        desc:'深みのある暖色系・アースカラーが得意。テラコッタ・カーキ・からし色・ブラウンなどの渋みのある色でこなれ感が出ます。大人っぽくこなれた印象。',
+        colors:['#b45309','#78350f','#4d7c0f','#7c2d12','#92400e'],
+        colorNames:['テラコッタ','チョコレートブラウン','カーキグリーン','バーガンディ','からし色'],
+        cosmeticsTip:'チークはブリック・テラコッタ系。リップはブラウンレッド・テラコッタ・オレンジ系。アイシャドウはブラウン・カーキ・ゴールド系。',
+        actions:['① テラコッタ・からし色のアイテムを1つ試す','② 黒よりダークブラウンの方が似合う可能性が高い','③ アースカラーでコーデを統一するとおしゃれ見えする'],
+        amazon:['テラコッタ リップ コスメ おすすめ','カーキ コート レディース','ゴールドブラウン アクセサリー']
+    },
+    winter:{label:'ブルべ冬（ウィンター）',emoji:'❄️',cls:'winter',badge:'#1e40af',
+        desc:'クリアで鮮やかなクールカラーが得意。真っ白・真っ黒・ロイヤルブルー・ワインレッドなどのはっきりした色でシャープな存在感が出ます。都会的でクールな印象。',
+        colors:['#ffffff','#111827','#1d4ed8','#7f1d1d','#6d28d9'],
+        colorNames:['ピュアホワイト','ブラック','ロイヤルブルー','ワインレッド','パープル'],
+        cosmeticsTip:'チークはローズ・フューシャ系。リップはディープレッド・バーガンディ・コールドピンク。アイシャドウはシルバー・グレー・ブラック系。',
+        actions:['① ディープレッド・バーガンディのリップを試す','② 黒×白のコントラストコーデが最も映える','③ シルバーアクセサリーで鋭さと清潔感を演出する'],
+        amazon:['バーガンディ リップ コスメ おすすめ','モノトーン コーデ レディース','シルバー ピアス レディース']
+    },
+};
+
+let st={q:0,ans:[],scores:{spring:0,summer:0,autumn:0,winter:0,yb:0,bb:0}};
+
+function render(){
+    const q=Q[st.q],total=Q.length,pct=Math.round(((st.q+1)/total)*100);
+    document.getElementById('progress-label').textContent=`質問 ${st.q+1}/${total}`;
+    document.getElementById('progress-pct').textContent=pct+'%';
+    document.getElementById('progress-fill').style.width=pct+'%';
+    document.getElementById('q-emoji').textContent=q.emoji;
+    document.getElementById('q-text').textContent=q.text;
+    const c=document.getElementById('options-container');c.innerHTML='';
+    q.opts.forEach((o,i)=>{
+        const b=document.createElement('button');
+        b.className='option-btn'+(st.ans[st.q]===i?' selected':'');
+        b.textContent=o.text;
+        b.onclick=()=>{st.ans[st.q]=i;render();};
+        c.appendChild(b);
+    });
+    const nb=document.getElementById('next-btn'),pb=document.getElementById('prev-btn');
+    const has=st.ans[st.q]!==undefined;
+    nb.disabled=!has;nb.classList.toggle('opacity-50',!has);nb.classList.toggle('cursor-not-allowed',!has);
+    nb.textContent=st.q===total-1?'結果を見る 🎨':'次へ →';
+    pb.classList.toggle('hidden',st.q===0);
+}
+
+function next(){if(st.ans[st.q]===undefined)return;if(st.q<Q.length-1){st.q++;render();}else showResult();}
+function prev(){if(st.q>0){st.q--;render();}}
+
+function calcScores(){
+    st.scores={spring:0,summer:0,autumn:0,winter:0,yb:0,bb:0};
+    Q.forEach((q,qi)=>{
+        const ai=st.ans[qi];if(ai===undefined)return;
+        const s=q.opts[ai].s;
+        Object.entries(s).forEach(([k,v])=>{if(st.scores[k]!==undefined)st.scores[k]+=v;});
+    });
+}
+
+function getTop(){
+    const main=['spring','summer','autumn','winter'];
+    return main.sort((a,b)=>st.scores[b]-st.scores[a])[0];
+}
+
+function showResult(){
+    document.getElementById('quiz-screen').classList.add('hidden');
+    document.getElementById('loading-screen').classList.remove('hidden');
+    setTimeout(()=>{
+        calcScores();
+        document.getElementById('loading-screen').classList.add('hidden');
+        renderResult();
+        document.getElementById('result-screen').classList.remove('hidden');
+        if(window.dataLayer)window.dataLayer.push({event:'personal_color_diagnosis_complete',result:getTop()});
+    },1500);
+}
+
+function renderResult(){
+    const top=getTop(),r=TYPES[top];
+    document.getElementById('result-emoji').textContent=r.emoji;
+    document.getElementById('result-title').textContent=r.label;
+    document.getElementById('result-badge').textContent=r.label;
+    document.getElementById('result-badge').style.background=r.badge;
+    document.getElementById('result-main').className='type-card mb-6 '+r.cls;
+    document.getElementById('result-headline').textContent=`✨ ${r.label}タイプ`;
+    document.getElementById('result-desc').textContent=r.desc;
+    document.getElementById('color-swatches').innerHTML=r.colors.map((c,i)=>`<div class="text-center"><div class="color-swatch mx-auto mb-1" style="background:${c}"></div><div class="text-xs text-gray-500">${r.colorNames[i]}</div></div>`).join('');
+    document.getElementById('cosmetics-tip').textContent=r.cosmeticsTip;
+    document.getElementById('action-list').innerHTML=r.actions.map(a=>`<div class="flex gap-2"><span class="text-pink-500 flex-shrink-0">✓</span><span>${a}</span></div>`).join('');
+    document.getElementById('amazon-links').innerHTML=r.amazon.map(kw=>`<a href="https://www.amazon.co.jp/s?k=${encodeURIComponent(kw)}&tag=appadaycrea0f-22" target="_blank" rel="noopener noreferrer" class="js-track-affiliate flex items-center justify-between bg-white border border-pink-100 rounded-xl p-3 text-sm no-underline hover:shadow-md transition" data-platform="Amazon" data-item-name="${kw}" data-link-type="affiliate_link"><span class="text-gray-700">${kw.replace(/ おすすめ/,'').replace(/ レディース/,'')}</span><span class="text-pink-600 font-bold">見る →</span></a>`).join('');
+    localStorage.setItem('personal_color_result',JSON.stringify({type:top,label:r.label,date:new Date().toISOString()}));
+}
+
+function shareResult(){
+    const d=JSON.parse(localStorage.getItem('personal_color_result')||'{}');
+    const text=`パーソナルカラー診断で「${d.label}」と判定されました！似合う色が分かって目からウロコです。あなたも診断してみては？`;
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent('https://appadaycreator.github.io/personal-color-finder/')}&hashtags=パーソナルカラー,イエベブルべ`,'_blank');
+}
+
+function restart(){
+    st={q:0,ans:[],scores:{spring:0,summer:0,autumn:0,winter:0,yb:0,bb:0}};
+    document.getElementById('result-screen').classList.add('hidden');
+    document.getElementById('quiz-screen').classList.remove('hidden');
+    render();
+}
+
+document.addEventListener('click',e=>{
+    const el=e.target.closest('.js-track-affiliate');
+    if(!el)return;
+    if(window.dataLayer)window.dataLayer.push({event:'affiliate_click',affiliate_item:el.dataset.itemName,affiliate_platform:el.dataset.platform});
+});
+
+render();
+</script>
+</body>
+</html>
