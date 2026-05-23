@@ -44,7 +44,15 @@
         .winter{background:linear-gradient(135deg,#eff6ff,#f0fdf4);border:2px solid #1e40af;}
         .hidden{display:none;}
         @media(max-width:768px){h1{font-size:clamp(1.5rem,5vw,2.2rem)!important;}.question-card{padding:16px;}.option-btn{font-size:1rem;padding:14px 16px;}input,select{font-size:16px!important;}}
-    </style>
+    
+/* Phase 8: Mobile Optimization */
+input, select, textarea { font-size: 16px !important; }
+button, .btn, .btn-primary, .option-btn, [role="button"] { min-height: 48px; min-width: 48px; touch-action: manipulation; }
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .max-w-lg { padding-left: 1rem; padding-right: 1rem; }
+}
+</style>
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
