@@ -4,7 +4,7 @@
   "description": "肌・瞳・髪の色から春夏秋冬タイプを無料診断。似合うファッション・メイクカラーが分かる。登録不要。",
   "start_url": "/personal-color-finder/",
   "display": "standalone",
-  "background_color": "#f8faf9",
+  "background_color": "#ffffff",
   "theme_color": "#7c3aed",
   "lang": "ja",
   "icons": [
